@@ -1,0 +1,45 @@
+package com.bachelor.electives.controller;
+
+import com.bachelor.electives.entity.TopicEntity;
+import com.bachelor.electives.exceptions.TopicNotFoundException;
+import com.bachelor.electives.repository.TopicRepo;
+import com.bachelor.electives.service.TopicService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Optional;
+
+@Controller
+public class MainController {
+
+    @Autowired
+    private TopicService topicService;
+
+    @GetMapping("/")
+    public String home(Model model) {
+        try {
+            Iterable<TopicEntity> topics = topicService.findAllElectives();
+            model.addAttribute("topics", topics);
+            return "home";
+        } catch (TopicNotFoundException ex) {
+            return ex.getMessage();
+        }
+    }
+
+    @GetMapping("/sign")
+    public String sign() {
+        return "sign";
+    }
+
+    @GetMapping("/contacts")
+    public String contacts() {
+        try {
+            return "contacts";
+        } catch (Exception ex) {
+            return ex.getMessage();
+        }
+    }
+}
