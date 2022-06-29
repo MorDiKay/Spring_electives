@@ -2,15 +2,11 @@ package com.bachelor.electives.controller;
 
 import com.bachelor.electives.entity.TopicEntity;
 import com.bachelor.electives.exceptions.TopicNotFoundException;
-import com.bachelor.electives.repository.TopicRepo;
 import com.bachelor.electives.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Optional;
 
 @Controller
 public class MainController {
