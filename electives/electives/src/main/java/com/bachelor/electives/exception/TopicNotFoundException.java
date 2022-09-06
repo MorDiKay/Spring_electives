@@ -1,4 +1,4 @@
-package com.bachelor.electives.exceptions;
+package com.bachelor.electives.exception;
 
 public class TopicNotFoundException extends Exception {
     public TopicNotFoundException(String message) {

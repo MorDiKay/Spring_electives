@@ -1,7 +1,7 @@
 package com.bachelor.electives.service;
 
 import com.bachelor.electives.entity.TopicEntity;
-import com.bachelor.electives.exceptions.TopicNotFoundException;
+import com.bachelor.electives.exception.TopicNotFoundException;
 import com.bachelor.electives.repository.TopicRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -25,17 +26,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/electives/**").hasRole(Roles.USER.name())
                 .antMatchers("/admins/**").hasRole(Roles.ADMIN.name())
                 .antMatchers("/lectors/**").hasRole(Roles.LECTOR.name())
-                .anyRequest()
-                .authenticated()
+                .anyRequest().authenticated()
                 .and()
                 .logout()
-                .deleteCookies("JSESSIONID")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                /*.deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
-                .clearAuthentication(true)
+                .clearAuthentication(true)*/
                 .and()
                 .httpBasic();
     }
-
+    
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {

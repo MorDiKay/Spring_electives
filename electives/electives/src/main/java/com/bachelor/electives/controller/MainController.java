@@ -1,7 +1,7 @@
 package com.bachelor.electives.controller;
 
 import com.bachelor.electives.entity.TopicEntity;
-import com.bachelor.electives.exceptions.TopicNotFoundException;
+import com.bachelor.electives.exception.TopicNotFoundException;
 import com.bachelor.electives.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
