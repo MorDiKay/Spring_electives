@@ -1,6 +1,7 @@
 package com.bachelor.electives.service;
 
 import com.bachelor.electives.entity.ElectiveEntity;
+import com.bachelor.electives.exception.ElectiveAlreadyExistException;
 import com.bachelor.electives.exception.ElectiveNotFoundException;
 import com.bachelor.electives.repository.ElectiveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,18 @@ public class ElectiveService {
             throw new ElectiveNotFoundException("Electives don't exists");
         }
         return electives;
+    }
+
+    public ElectiveEntity createElective(ElectiveEntity elective) throws ElectiveAlreadyExistException {
+        if(electiveRepo.findByName(elective.getName()) != null) {
+            throw new ElectiveAlreadyExistException("This elective already exist");
+        }
+        return electiveRepo.save(elective);
+    }
+
+    public Long deleteElective(Long id) {
+        electiveRepo.deleteById(id);
+        return id;
     }
 
     /*public ArrayList<ElectiveEntity> findAllByTopicId(Long topicId) {

@@ -8,4 +8,6 @@ public interface ElectiveRepo extends JpaRepository<ElectiveEntity, Long> {
 
     @Query(value = "SELECT * FROM elective_entity WHERE topic_id = :topicId", nativeQuery = true)
     Iterable<ElectiveEntity> findElectivesByTopicId(Long topicId);
+
+    ElectiveEntity findByName(String name);
 }
