@@ -25,13 +25,16 @@
                 <td th:text="${el.start_time}"></td>
                 <td th:text="${el.end_time}"></td>
                 <td th:text="${el.status}"></td>
+                <td>
+                    <span th:if="${el.status == 'expected'}">
+                        <a class="btn btn-info" href="/registration" role="button">Enroll</a>
+                    </span>
+                </td>
             </tr>
             </tfoot>
         </table>
     </div>
 </div>
-
-
 
 <!--<ul th:each="el : ${electives}">
     <li th:text="${el.name}"></li>

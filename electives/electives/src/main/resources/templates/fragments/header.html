@@ -4,17 +4,18 @@
             <span class="fs-4">Electives</span>
         </a>
 
-        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <nav class="d-inline-flex mt-2 mt-md-1 ms-md-auto">
             <a class="me-3 py-2 text-dark text-decoration-none" href="#">Ru</a>
             <a class="me-3 py-2 text-dark text-decoration-none" href="#">En</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="/contacts">Contacts</a>
+            <a class="me-2 btn btn-outline-success" href="/contacts">Contacts</a>
+            <a class="me-2 btn btn-outline-success" href="/cabinet">Cabinet</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <a class="py-2 text-dark text-decoration-none px-2" >
+            <a class="py-1 text-dark text-decoration-none px-1" >
                 <form th:action = "@{/logout}" method="post">
-                    <input type="submit" value="Logout">
+                    <input class="btn btn-outline-success" type="submit" value="Logout">
                 </form>
             </a>
 

@@ -18,6 +18,7 @@ public class ElectiveEntity {
     private String status;
     private Date start_time;
     private Date end_time;
+    private String information;
 
     @ManyToOne
     @JoinColumn(name = "topic_id")
@@ -64,5 +65,13 @@ public class ElectiveEntity {
 
     public void setEnd_time(Date end_time) {
         this.end_time = end_time;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 }

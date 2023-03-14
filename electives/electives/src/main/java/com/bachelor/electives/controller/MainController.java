@@ -38,4 +38,18 @@ public class MainController {
             return ex.getMessage();
         }
     }
+
+    @GetMapping("/registration")
+    public String registration() {
+        try {
+            return "registration";
+        } catch (Exception ex) {
+            return ex.getMessage();
+        }
+    }
+
+    @GetMapping("/cabinet")
+    public String cabinet() {
+        return "cabinet";
+    }
 }
