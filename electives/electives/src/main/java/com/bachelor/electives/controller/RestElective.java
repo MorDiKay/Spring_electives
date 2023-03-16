@@ -1,8 +1,8 @@
 package com.bachelor.electives.controller;
 
-import com.bachelor.electives.entity.UserEntity;
-import com.bachelor.electives.exception.UserAlreadyExistException;
-import com.bachelor.electives.service.UserService;
+import com.bachelor.electives.entity.ElectiveEntity;
+import com.bachelor.electives.exception.ElectiveAlreadyExistException;
+import com.bachelor.electives.service.ElectiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/test")
+public class RestElective {
 
     @Autowired
-    private UserService userService;
+    private ElectiveService electiveService;
 
     @PostMapping
-    public ResponseEntity addUser(@RequestBody UserEntity user, @RequestParam Long roleId) {
+    public ResponseEntity addElective(@RequestBody ElectiveEntity elective, @RequestParam Long topicId) {
         try {
-            return ResponseEntity.ok(userService.createUser(user, roleId));
-        } catch (UserAlreadyExistException e) {
+            return ResponseEntity.ok(electiveService.createElective(elective, topicId));
+        } catch (ElectiveAlreadyExistException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e) {
@@ -34,9 +34,9 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteUser(@PathVariable Long id) {
+    public ResponseEntity deleteElective(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(userService.deleteUser(id));
+            return ResponseEntity.ok(electiveService.deleteElective(id));
         }
         catch (Exception e) {
             return ResponseEntity.badRequest().body("Error!");
@@ -44,9 +44,9 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity getAllUsers() {
+    public ResponseEntity getAllElectives() {
         try {
-            return ResponseEntity.ok(userService.getUser());
+            return ResponseEntity.ok(electiveService.getElective());
         }
         catch (Exception e) {
             return ResponseEntity.badRequest().body("Error!");

@@ -3,38 +3,18 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
-
-    <style>
-        .gradient-custom {
-            /* fallback for old browsers */
-            background: #f093fb;
-
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
-
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
-        }
-
-        .form-control[readonly]:not([disabled]) {
-            font-size: 1rem;
-            line-height: 2.15;
-            padding-left: .75em;
-            padding-right: .75em;
-        }
-        .select-arrow {
-            top: 13px;
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet"/>
 </head>
-<body class="d-flex flex-column min-vh-100 modal" style="overflow-y: auto;">
 <header th:insert="fragments/header :: header"></header>
+<body class="d-flex flex-column min-vh-100 modal" style="overflow-y: auto;">
 
 <body class="d-flex flex-column min-vh-100 modal" style="overflow-y: auto;">
-<section class="vh-100" style="background-color:#f093fb">
+<section class="vh-100 gradient-custom" style="background-color:#f093fb">
     <div class="container py-5 h-100">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-lg-9 col-xl-7">
@@ -47,7 +27,7 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="firstName" class="form-control form-control-lg" />
+                                        <input type="text" id="firstName" class="form-control form-control-lg"/>
                                         <label class="form-label" for="firstName">First Name</label>
                                     </div>
 
@@ -55,7 +35,7 @@
                                 <div class="col-md-6 mb-4">
 
                                     <div class="form-outline">
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="lastName" class="form-control form-control-lg"/>
                                         <label class="form-label" for="lastName">Last Name</label>
                                     </div>
 
@@ -66,8 +46,8 @@
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                     <div class="form-outline datepicker w-100">
-                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                                        <label for="birthdayDate" class="form-label">Birthday</label>
+                                        <input type="text" class="form-control form-control-lg" id="birthdayDate"/>
+                                        <label for="birthdayDate" class="form-label">Age</label>
                                     </div>
 
                                 </div>
@@ -76,26 +56,27 @@
                                     <h6 class="mb-2 pb-1">Gender: </h6>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                               value="option1" checked />
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                               id="femaleGender"
+                                               value="option1" checked/>
                                         <label class="form-check-label" for="femaleGender">Female</label>
                                     </div>
 
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                               value="option2" />
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                               id="maleGender"
+                                               value="option2"/>
                                         <label class="form-check-label" for="maleGender">Male</label>
                                     </div>
 
 
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                                        <input type="email" id="emailAddress" class="form-control form-control-lg"/>
                                         <label class="form-label" for="emailAddress">Email</label>
                                     </div>
 
@@ -103,7 +84,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline">
-                                        <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                                        <input type="tel" id="phoneNumber" class="form-control form-control-lg"/>
                                         <label class="form-label" for="phoneNumber">Phone Number</label>
                                     </div>
 
@@ -113,18 +94,17 @@
                             <div class="row">
                                 <div class="col-12">
 
-                                    <select class="select form-control-lg">
-                                        <option value="1" disabled>Select a Payment Method</option>
-                                        <option value="2">Master Card</option>
-                                        <option value="3">ViSa</option>
-                                    </select>
                                     <label class="form-label select-label">Select a Payment Method</label>
+                                    <select class="select form-control">
+                                        <option value="1">Master Card</option>
+                                        <option value="2">Visa</option>
+                                    </select>
 
                                 </div>
                             </div>
 
                             <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit"/>
                             </div>
 
                         </form>
@@ -134,8 +114,10 @@
         </div>
     </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
+></script>
 </body>
 <footer class="mt-auto" th:insert="fragments/footer :: footer"></footer>
 </body>

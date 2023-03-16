@@ -1,17 +1,24 @@
 package com.bachelor.electives.service;
 
 import com.bachelor.electives.entity.ElectiveEntity;
+import com.bachelor.electives.entity.TopicEntity;
 import com.bachelor.electives.exception.ElectiveAlreadyExistException;
 import com.bachelor.electives.exception.ElectiveNotFoundException;
 import com.bachelor.electives.repository.ElectiveRepo;
+import com.bachelor.electives.repository.TopicRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ElectiveService {
 
     @Autowired
     private ElectiveRepo electiveRepo;
+
+    @Autowired
+    private TopicRepo topicRepo;
 
     public Iterable<ElectiveEntity> findAllByTopicId(Long id) throws ElectiveNotFoundException {
         Iterable<ElectiveEntity> electives = electiveRepo.findElectivesByTopicId(id);
@@ -21,10 +28,12 @@ public class ElectiveService {
         return electives;
     }
 
-    public ElectiveEntity createElective(ElectiveEntity elective) throws ElectiveAlreadyExistException {
+    public ElectiveEntity createElective(ElectiveEntity elective, Long topicId) throws ElectiveAlreadyExistException {
         if(electiveRepo.findByName(elective.getName()) != null) {
             throw new ElectiveAlreadyExistException("This elective already exist");
         }
+        TopicEntity topic = topicRepo.findById(topicId).get();
+        elective.setTopic(topic);
         return electiveRepo.save(elective);
     }
 
@@ -33,12 +42,8 @@ public class ElectiveService {
         return id;
     }
 
-    /*public ArrayList<ElectiveEntity> findAllByTopicId(Long topicId) {
-        ElectiveEntity electiveEntity = (ElectiveEntity) electiveRepo.findAll();
-        ArrayList<ElectiveEntity> electiveEntities = new ArrayList<>();
-        if(electiveEntity.getId().equals(topicId)) {
-            electiveEntities.add(electiveEntity);
-        }
-        return electiveEntities;
-    }*/
+    public List<ElectiveEntity> getElective() {
+        return electiveRepo.findAll();
+    }
+
 }

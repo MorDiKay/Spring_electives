@@ -12,7 +12,7 @@ import java.util.Date;
 public class ElectiveEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String status;
@@ -73,5 +73,13 @@ public class ElectiveEntity {
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    public TopicEntity getTopic() {
+        return topic;
+    }
+
+    public void setTopic(TopicEntity topic) {
+        this.topic = topic;
     }
 }
